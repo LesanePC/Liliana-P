@@ -1,0 +1,164 @@
+.contacts {
+  padding: 55px 56px 70px;
+
+  background: #292521;
+  color: #f4f0ea;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 35px;
+
+  border-bottom: 1px solid rgba(244, 240, 234, 0.18);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: #c98b73;
+
+  span {
+    width: 45px;
+    height: 1px;
+    background: #c98b73;
+  }
+}
+
+.number {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(244, 240, 234, 0.45);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 100px;
+
+  padding-top: 100px;
+}
+
+.heading h2 {
+  margin: 0;
+
+  font-family: var(--font-serif);
+  font-size: clamp(58px, 6vw, 90px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+
+  em {
+    color: #c98b73;
+    font-weight: 400;
+  }
+}
+
+.heading p {
+  max-width: 350px;
+  margin: 45px 0 0;
+
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba(244, 240, 234, 0.55);
+}
+
+.contactList {
+  align-self: end;
+}
+
+.contact {
+  display: block;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid rgba(244, 240, 234, 0.18);
+
+  &:first-child {
+    border-top: 1px solid rgba(244, 240, 234, 0.18);
+  }
+
+  &:hover {
+    .value {
+      color: #c98b73;
+    }
+
+    .arrow {
+      transform: translate(5px, -5px);
+    }
+  }
+}
+
+.label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 9px;
+  letter-spacing: 0.16em;
+
+  color: rgba(244, 240, 234, 0.4);
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: var(--font-serif);
+  font-size: 28px;
+
+  transition: color 0.3s ease;
+}
+
+.arrow {
+  font-family: var(--font-sans);
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 800px) {
+  .contacts {
+    padding: 45px 32px 60px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 70px;
+
+    padding-top: 70px;
+  }
+
+  .contactList {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .contacts {
+    padding: 35px 20px 45px;
+  }
+
+  .content {
+    padding-top: 55px;
+  }
+
+  .heading h2 {
+    font-size: 52px;
+  }
+
+  .heading p {
+    margin-top: 30px;
+  }
+
+  .value {
+    font-size: 24px;
+  }
+}
