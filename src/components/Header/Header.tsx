@@ -44,7 +44,9 @@ export const Header = () => {
         type="button"
         className={styles.menuButton}
         onClick={() => setIsMenuOpen((prev) => !prev)}
-        aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+        aria-label={
+          isMenuOpen ? 'Закрыть меню' : 'Открыть меню'
+        }
         aria-expanded={isMenuOpen}
       >
         <span>{isMenuOpen ? '×' : '+'}</span>
@@ -62,7 +64,10 @@ export const Header = () => {
             className={styles.link}
             onClick={handleLinkClick}
           >
-            <span className={styles.number}>{item.number}</span>
+            <span className={styles.number}>
+              {item.number}
+            </span>
+
             <span>{item.label}</span>
           </a>
         ))}
