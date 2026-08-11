@@ -1,4 +1,5 @@
 import styles from './Hero.module.scss';
+import portrait from '../../assets/images/liliana/portrait.jpg';
 
 export const Hero = () => {
   return (
@@ -32,9 +33,11 @@ export const Hero = () => {
 
       <div className={styles.visual}>
         <div className={styles.paper}>
-          <div className={styles.placeholder}>
-            <span>Л</span>
-          </div>
+          <img
+            src={portrait}
+            alt="Лилиана — графический дизайнер и художник"
+            className={styles.portrait}
+          />
 
           <div className={styles.tape} />
         </div>
