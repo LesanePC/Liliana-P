@@ -1,5 +1,5 @@
 import styles from './Hero.module.scss';
-import portrait from '../../assets/images/liliana/portrait.jpg';
+import portrait from '/images/liliana/portrait.jpg';
 
 export const Hero = () => {
   return (

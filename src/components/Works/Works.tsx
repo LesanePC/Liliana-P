@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { works } from '../../data/works';
 import styles from './Works.module.scss';
 
@@ -60,12 +62,20 @@ const WorkCategory = ({
   description,
   works,
 }: WorkCategoryProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
+
+  const visibleWorks = isExpanded ? works : works.slice(0, 3);
+  const showButton = works.length > 3;
+
+  const closeModal = () => setSelectedWork(null);
+
   return (
     <div className={styles.category}>
       <div className={styles.categoryHeader}>
         <div>
           <span className={styles.categoryNumber}>
-            0{works[0].category === 'art' ? '1' : '2'}
+            0{works[0]?.category === 'art' ? '1' : '2'}
           </span>
 
           <h3>
@@ -79,42 +89,70 @@ const WorkCategory = ({
       </div>
 
       <div className={styles.gallery}>
-        {works.map((work, index) => (
-          <div
-            className={`${styles.workCard} ${
-              index === 0 ? styles.large : ''
-            }`}
-            key={work.id}
-          >
+        {visibleWorks.map((work, index) => {
+          const isLarge = index === 0;
+          return (
             <div
-              className={styles.image}
-              style={{ backgroundColor: work.color }}
+              className={`${styles.workCard} ${isLarge ? styles.large : styles.small}`}
+              key={work.id}
+              onClick={() => setSelectedWork(work)}
             >
-              <span className={styles.placeholderLetter}>
-                {work.title.charAt(0)}
-              </span>
-
-              <div className={styles.overlay}>
-                <span>ПОСМОТРЕТЬ →</span>
+              <div
+                className={styles.image}
+                style={{ backgroundColor: work.color || '#E5DDD4' }}
+              >
+                <img src={work.image} alt={work.title} className={styles.workImage} />
+                <div className={styles.overlay}>
+                  <span>ПОСМОТРЕТЬ →</span>
+                </div>
+              </div>
+              <div className={styles.workInfo}>
+                <span>{work.title}</span>
+                <span>{work.type}</span>
               </div>
             </div>
-
-            <div className={styles.workInfo}>
-              <span>{work.title}</span>
-              <span>{work.type}</span>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className={styles.categoryFooter}>
         <p>{description}</p>
 
-        <button type="button">
-          СМОТРЕТЬ ВСЕ
-          <span>↗</span>
-        </button>
+        {showButton && (
+          <button type="button" onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? 'СВЕРНУТЬ' : 'СМОТРЕТЬ ВСЕ'}
+            <span>↗</span>
+          </button>
+        )}
       </div>
+
+      {/* --- МОДАЛЬНОЕ ОКНО ЧЕРЕЗ ПОРТАЛ --- */}
+      {selectedWork &&
+        createPortal(
+          <div className={styles.modalOverlay} onClick={closeModal}>
+            <div className={styles.modalContent}>
+              <button
+                className={styles.modalClose}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeModal();
+                }}
+              >
+                ×
+              </button>
+              <img
+                src={selectedWork.image}
+                alt={selectedWork.title}
+                onClick={(e) => e.stopPropagation()}
+              />
+              <div className={styles.modalInfo}>
+                <h3>{selectedWork.title}</h3>
+                <p>{selectedWork.type}</p>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 };
