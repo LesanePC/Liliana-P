@@ -93,26 +93,13 @@
 }
 
 .plus {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--color-border);
-  font-size: 20px;
-  font-weight: 300;
-  transition: background 0.3s ease, color 0.3s ease;
-
-  .category:hover & {
-    background: var(--color-accent);
-    color: var(--color-surface);
-  }
+  display: none; /* Убрали плюсик */
 }
 
-/* --- СЕТКА И ФОТОГРАФИИ (ИЗМЕНЕНО) --- */
+/* НОВАЯ РОВНАЯ СЕТКА */
 .gallery {
   display: grid;
-  grid-template-columns: 1.35fr 1fr; /* Левая колонка шире правой */
+  grid-template-columns: 1fr 1fr; /* ДВЕ РАВНЫЕ КОЛОНКИ */
   gap: 12px;
 }
 
@@ -121,15 +108,14 @@
   position: relative;
 }
 
-/* Общие настройки картинки */
 .image {
   position: relative;
   width: 100%;
   overflow: hidden;
-  display: block; /* ИЗМЕНЕНО: с flex на block для корректной работы padding */
-  background-color: #E5DDD4; /* Ваш бежевый цвет фона (заглушка) */
-  
-  /* Внутренняя рамка (которая уже была у вас) */
+  display: block;
+  background-color: #E5DDD4;
+
+  /* Внутренняя рамка */
   &::before {
     content: '';
     position: absolute;
@@ -140,32 +126,23 @@
   }
 }
 
-/* ВАЖНО: Классы для React-компонента */
-.workCard.large .image {
-  height: 408px; /* Новая высота для высокой карточки (190 + 12 + 12 отступ + место под вторую) */
-  grid-row: span 2; /* Заставляет блок растянуться на 2 ряда */
-}
-
+/* Убираем старые высоты и делаем все картинки одинаковыми */
+.workCard .image,
+.workCard.large .image,
 .workCard.small .image {
-  height: 198px; /* Высота маленькой карточки (190px + паддинги) */
+  height: 300px;
+  aspect-ratio: 4 / 3;
 }
 
-/* Сама фотография (вместо буквы) */
 .workImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  padding: 12px; /* === ЭТО ОТСТУП ОТ КРАЕВ ПЛАШКИ === */
+  padding: 12px;
   transition: transform 0.6s ease;
   display: block;
 }
 
-/* Убираем старую букву */
-.placeholderLetter {
-  display: none; 
-}
-
-/* Оверлей при наведении */
 .overlay {
   position: absolute;
   inset: 0;
@@ -194,11 +171,10 @@
     transform: translateY(0);
   }
   .workImage {
-    transform: scale(1.05); /* Легкое увеличение картинки при наведении */
+    transform: scale(1.05);
   }
 }
 
-/* Инфо под картинкой */
 .workInfo {
   display: flex;
   justify-content: space-between;
@@ -250,7 +226,8 @@
     }
   }
 }
-/* --- МОДАЛЬНОЕ ОКНО (ЛАЙТБОКС) НА ВЕСЬ ЭКРАН --- */
+
+/* МОДАЛЬНОЕ ОКНО (ЛАЙТБОКС) */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -274,18 +251,18 @@
   align-items: center;
   justify-content: center;
   cursor: default;
-  animation: fadeIn 0.2s ease forwards; /* Заменил scaleIn на fadeIn для устранения дерганий */
-}
+  animation: fadeIn 0.2s ease forwards;
 
-.modalContent img {
-  max-width: 92%;
-  max-height: 90%;
-  object-fit: contain;
-  display: block;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  transition: none;
-  z-index: 10000;
+  img {
+    max-width: 92%;
+    max-height: 90%;
+    object-fit: contain;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: none;
+    z-index: 10000;
+  }
 }
 
 .modalClose {
@@ -305,11 +282,11 @@
   align-items: center;
   justify-content: center;
   z-index: 10001;
-}
 
-.modalClose:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: rotate(90deg);
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
 }
 
 .modalInfo {
@@ -325,23 +302,23 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   pointer-events: none;
   z-index: 10000;
-}
 
-.modalInfo h3 {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 400;
-  margin: 0 0 4px 0;
-  color: #fff;
-  letter-spacing: 0.02em;
-}
+  h3 {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 4px 0;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
 
-.modalInfo p {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
 }
 
 @keyframes fadeIn {
@@ -349,7 +326,6 @@
   to { opacity: 1; }
 }
 
-/* --- АДАПТИВ МОДАЛКИ --- */
 @media (max-width: 700px) {
   .modalClose {
     top: 16px;
@@ -363,14 +339,13 @@
     bottom: 24px;
     padding: 12px 20px;
     min-width: 80%;
-  }
 
-  .modalInfo h3 { font-size: 18px; }
-  .modalInfo p { font-size: 11px; }
+    h3 { font-size: 18px; }
+    p { font-size: 11px; }
+  }
 }
 
-/* --- АДАПТИВНОСТЬ --- */
-
+/* АДАПТИВНОСТЬ ОСНОВНОГО МАКЕТА */
 @media (max-width: 1000px) {
   .heading {
     grid-template-columns: 1fr 1fr;
@@ -419,13 +394,11 @@
   .gallery {
     grid-template-columns: 1fr;
   }
-  
-  /* На мобилке сбрасываем высоты и делаем картинки равными */
-  .workCard .image, 
+
+  .workCard .image,
   .workCard.large .image,
   .workCard.small .image {
-    height: 300px;
-    grid-row: auto;
+    height: 250px;
   }
 
   .categoryFooter {

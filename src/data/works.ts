@@ -10,10 +10,10 @@ export interface Work {
 }
 
 export const works: Work[] = [
-  // ================= ХУДОЖЕСТВЕННЫЕ РАБОТЫ (16 шт) =================
+  // ================= ХУДОЖЕСТВЕННЫЕ РАБОТЫ =================
   {
     id: 1,
-    title: 'Тихий портрет',
+    title: 'Цветы в вазе',
     category: 'art',
     type: 'Живопись',
     color: '#d8c8b8',
@@ -21,15 +21,15 @@ export const works: Work[] = [
   },
   {
     id: 2,
-    title: 'Форма и свет',
+    title: 'Натюрморт с овощами',
     category: 'art',
-    type: 'Графика',
+    type: 'Живопись',
     color: '#c8b8a8',
     image: 'images/art/art2.jpg',
   },
   {
     id: 3,
-    title: 'Ботаника',
+    title: 'Натюрморт с яблоками',
     category: 'art',
     type: 'Акварель',
     color: '#ddd4c8',
@@ -45,7 +45,7 @@ export const works: Work[] = [
   },
   {
     id: 5,
-    title: 'Этюд с самоваром',
+    title: 'Этюд - цветы и фрукты',
     category: 'art',
     type: 'Акрил',
     color: '#b8a898',
@@ -53,7 +53,7 @@ export const works: Work[] = [
   },
   {
     id: 6,
-    title: 'Горный пейзаж',
+    title: 'Морской дракон',
     category: 'art',
     type: 'Масло',
     color: '#a8c8d8',
@@ -61,7 +61,7 @@ export const works: Work[] = [
   },
   {
     id: 7,
-    title: 'Портрет в технике гризайль',
+    title: 'Осьминог',
     category: 'art',
     type: 'Графика',
     color: '#d0d0c8',
@@ -69,7 +69,7 @@ export const works: Work[] = [
   },
   {
     id: 8,
-    title: 'Ветка сирени',
+    title: 'Красный Дракон',
     category: 'art',
     type: 'Акварель',
     color: '#d8b8c8',
@@ -77,7 +77,7 @@ export const works: Work[] = [
   },
   {
     id: 9,
-    title: 'Интерьер в теплых тонах',
+    title: 'Скрудж',
     category: 'art',
     type: 'Пастель',
     color: '#e8d0b8',
@@ -85,7 +85,7 @@ export const works: Work[] = [
   },
   {
     id: 10,
-    title: 'Осенний этюд',
+    title: 'Мишка на Севере',
     category: 'art',
     type: 'Масло',
     color: '#c89868',
@@ -93,7 +93,7 @@ export const works: Work[] = [
   },
   {
     id: 11,
-    title: 'Морской бриз',
+    title: 'Поэты',
     category: 'art',
     type: 'Акварель',
     color: '#a0c0d0',
@@ -101,7 +101,7 @@ export const works: Work[] = [
   },
   {
     id: 12,
-    title: 'Городской скетч',
+    title: 'Натюрморт - посуда и фигурка',
     category: 'art',
     type: 'Графика',
     color: '#d0c8b8',
@@ -109,7 +109,7 @@ export const works: Work[] = [
   },
   {
     id: 13,
-    title: 'Пионы в вазе',
+    title: 'Натюрморт - фрукты',
     category: 'art',
     type: 'Живопись',
     color: '#e0c0b8',
@@ -117,7 +117,7 @@ export const works: Work[] = [
   },
   {
     id: 14,
-    title: 'Вечерний натюрморт',
+    title: 'Натюрморт с самоваром',
     category: 'art',
     type: 'Масло',
     color: '#b8a898',
@@ -125,7 +125,7 @@ export const works: Work[] = [
   },
   {
     id: 15,
-    title: 'Лесная тропа',
+    title: 'Натюрморт с Чайником',
     category: 'art',
     type: 'Акрил',
     color: '#98b898',
@@ -140,18 +140,18 @@ export const works: Work[] = [
     image: 'images/art/art16.jpg',
   },
 
-  // ================= ГРАФИЧЕСКИЕ РАБОТЫ (15 шт) =================
+  // ================= ГРАФИЧЕСКИЕ РАБОТЫ =================
   {
     id: 101,
-    title: 'Наука рядом',
+    title: 'Музей хлеба',
     category: 'graphic',
-    type: 'Айдентика',
+    type: 'Плакат',
     color: '#cdb8a8',
     image: 'images/graphic/art1.jpg',
   },
   {
     id: 102,
-    title: 'Фестиваль науки',
+    title: 'Выставка фотографий',
     category: 'graphic',
     type: 'Плакат',
     color: '#d8d0c5',
@@ -159,7 +159,7 @@ export const works: Work[] = [
   },
   {
     id: 103,
-    title: 'Космос. Эффект Рэлея',
+    title: 'Love',
     category: 'graphic',
     type: 'Плакат',
     color: '#c7b5a5',
@@ -167,7 +167,7 @@ export const works: Work[] = [
   },
   {
     id: 104,
-    title: 'ИИ — это инструмент',
+    title: 'Дальний Восток',
     category: 'graphic',
     type: 'Плакат',
     color: '#b8a898',
@@ -183,17 +183,17 @@ export const works: Work[] = [
   },
   {
     id: 106,
-    title: 'Фильм ужасов',
+    title: 'ИИ - Технологии',
     category: 'graphic',
-    type: 'Киноплакат',
+    type: 'Плакат',
     color: '#c0b0a0',
     image: 'images/graphic/art6.png',
   },
   {
     id: 107,
-    title: 'Дракон Хидэ',
+    title: 'ИИ - Инструмент',
     category: 'graphic',
-    type: 'Арт-принт',
+    type: 'Плакат',
     color: '#d8c0b8',
     image: 'images/graphic/art7.png',
   },
@@ -207,7 +207,7 @@ export const works: Work[] = [
   },
   {
     id: 109,
-    title: 'Разворот на Восток',
+    title: 'Смарт - Часы',
     category: 'graphic',
     type: 'Иллюстративный плакат',
     color: '#a0b8d0',
@@ -215,7 +215,7 @@ export const works: Work[] = [
   },
   {
     id: 110,
-    title: 'Брендинг для бизнеса',
+    title: 'Термо-бутылка',
     category: 'graphic',
     type: 'Логотип',
     color: '#c8b8a8',
@@ -223,7 +223,7 @@ export const works: Work[] = [
   },
   {
     id: 111,
-    title: 'Климат Контроль',
+    title: 'Наука',
     category: 'graphic',
     type: 'Инфографика',
     color: '#b8c0d0',

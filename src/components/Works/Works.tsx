@@ -18,14 +18,14 @@ export const Works = () => {
         </div>
 
         <h2>
-          Два направления —
+          Два направления -
           <br />
           <em>одна страсть</em>
         </h2>
 
         <p>
           Искусство и дизайн существуют рядом.
-          Каждый проект — это возможность
+          Каждый проект - это возможность
           исследовать форму, цвет и идею.
         </p>
       </div>
@@ -65,8 +65,8 @@ const WorkCategory = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedWork, setSelectedWork] = useState<typeof works[0] | null>(null);
 
-  const visibleWorks = isExpanded ? works : works.slice(0, 3);
-  const showButton = works.length > 3;
+  const visibleWorks = isExpanded ? works : works.slice(0, 4);
+  const showButton = works.length > 4;
 
   const closeModal = () => setSelectedWork(null);
 
@@ -84,13 +84,12 @@ const WorkCategory = ({
             <span>{subtitle}</span>
           </h3>
         </div>
-
-        <span className={styles.plus}>+</span>
       </div>
 
       <div className={styles.gallery}>
-        {visibleWorks.map((work, index) => {
-          const isLarge = index === 0;
+        {visibleWorks.map((work) => {
+          const isLarge = false; 
+          
           return (
             <div
               className={`${styles.workCard} ${isLarge ? styles.large : styles.small}`}
