@@ -93,13 +93,12 @@
 }
 
 .plus {
-  display: none; /* Убрали плюсик */
+  display: none;
 }
 
-/* НОВАЯ РОВНАЯ СЕТКА */
 .gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* ДВЕ РАВНЫЕ КОЛОНКИ */
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
@@ -126,7 +125,6 @@
   }
 }
 
-/* Убираем старые высоты и делаем все картинки одинаковыми */
 .workCard .image,
 .workCard.large .image,
 .workCard.small .image {
